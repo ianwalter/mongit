@@ -1,0 +1,32 @@
+{
+  "name": "mongit",
+  "license": "SEE LICENSE IN LICENSE",
+  "bin": {
+    "mongit": "index.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@ianwalter/cli": "^3.0.0",
+    "@ianwalter/print": "^3.9.0",
+    "execa": "^3.4.0"
+  },
+  "devDependencies": {
+    "@ianwalter/eslint-config": "^3.1.0",
+    "@ianwalter/release": "^3.0.6",
+    "@ianwalter/renovate-config": "^1.2.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@ianwalter"
+    ]
+  },
+  "renovate": {
+    "extends": [
+      "@ianwalter"
+    ]
+  }
+}
