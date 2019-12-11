@@ -14,14 +14,14 @@ const { _: [command, target], ...config } = cli({
 })
 
 async function getCommit (key) {
-  const args = ['log', '--format=%h', `--grep=^${key}$`]
+  const args = ['log', '--format=%h', `--grep=^mongit-${key}$`]
   const { stdout: hash } = await execa('git', args)
   return hash
 }
 
 async function snapshot (key) {
   // Check to see if the given key already exists.
-  const commit = getCommit(key)
+  const commit = await getCommit(key)
 
   // If the given snapshot key exists, inform the user and exit.
   if (commit) {
@@ -53,8 +53,11 @@ async function snapshot (key) {
     await execa('mongodump', config.uri ? ['--uri', config.uri] : [])
   }
 
-  //
-  await execa('git', ['commit', '-m', key])
+  // Stage all changes.
+  await execa('git', ['add', '.'])
+
+  // Commit all changed.
+  await execa('git', ['commit', '-m', `mongit-${key}`])
 }
 
 async function restore (key) {
@@ -93,7 +96,10 @@ async function restore (key) {
 
 async function run () {
   try {
-    if (command === 'branch') {
+    if (command === 'init') {
+      await snapshot('initial')
+      print.success('mongit initialized')
+    } else if (command === 'branch') {
       await execa('git', ['checkout', '-b', target])
       await snapshot(`${target}-initial`)
       print.success(`Created branch ${target}`)
@@ -107,7 +113,7 @@ async function run () {
       print.error('Command not found:', command)
     }
   } catch (err) {
-    print.error(err)
+    print.error(err.stderr || err.stdout || err)
   }
 }
 
