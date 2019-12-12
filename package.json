@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@ianwalter/cli": "^3.0.0",
-    "@ianwalter/print": "^3.9.0",
+    "@ianwalter/print": "^4.0.1",
     "execa": "^3.4.0"
   },
   "devDependencies": {
