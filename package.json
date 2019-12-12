@@ -1,6 +1,12 @@
 {
   "name": "mongit",
+  "description": "Snapshot and restore your MongoDB database using git",
+  "version": "0.0.0",
   "license": "SEE LICENSE IN LICENSE",
+  "author": {
+    "name": "Ian Walter",
+    "url": "https://ianwalter.dev"
+  },
   "bin": {
     "mongit": "index.js"
   },
@@ -8,6 +14,24 @@
   "scripts": {
     "lint": "eslint ."
   },
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianwalter/mongit.git"
+  },
+  "keywords": [
+    "mongo",
+    "mongodb",
+    "snapshot",
+    "restore",
+    "git"
+  ],
+  "bugs": {
+    "url": "https://github.com/ianwalter/mongit/issues"
+  },
+  "homepage": "https://github.com/ianwalter/mongit#readme",
   "dependencies": {
     "@ianwalter/cli": "^3.0.0",
     "@ianwalter/print": "^4.0.1",
