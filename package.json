@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/mongit",
   "description": "Snapshot and restore your MongoDB database using git",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "license": "SEE LICENSE IN LICENSE",
   "author": {
     "name": "Ian Walter",
