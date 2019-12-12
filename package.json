@@ -1,5 +1,5 @@
 {
-  "name": "mongit",
+  "name": "@ianwalter/mongit",
   "description": "Snapshot and restore your MongoDB database using git",
   "version": "0.0.1",
   "license": "SEE LICENSE IN LICENSE",
